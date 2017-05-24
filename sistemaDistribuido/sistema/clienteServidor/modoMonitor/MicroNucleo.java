@@ -390,13 +390,15 @@ public final class MicroNucleo extends MicroNucleoBase{
 		
 		public EnviadorLSAYVerificador(int numeroServicio,byte[] mensaje){
 			this.mensaje = new byte[1024];
-			System.arraycopy(mensaje, 0, this.mensaje, 0, 1024);
+			System.arraycopy(mensaje,0, this.mensaje, 0, 1024);
+			System.out.println();
 			this.numeroServicio=numeroServicio;
 			datosDireccionamiento=null;
 			
 		}
 		
 		public void run(){
+			
 			ReenviaPaquete reenviador;
 			do{
 				if((datosDireccionamiento=tablaDireccionamientoProcesosRemotos.buscarProceso(numeroServicio))==null){
@@ -416,8 +418,7 @@ public final class MicroNucleo extends MicroNucleoBase{
 					mensaje[4]=(byte)datosDireccionamiento.idProceso;
 					imprimeln("*********Se reenviará el paquete del cliente "+mensaje[0]+" en 5 segundos");
 					imprimeln("*********El nuevo destino es el proceso "+ datosDireccionamiento.idProceso+" con la ip "+datosDireccionamiento.ip);
-					
-					mensaje = new byte[1024];
+
 					
 					reenviador = new ReenviaPaquete(datosDireccionamiento.ip,mensaje);
 					reenviador.start();

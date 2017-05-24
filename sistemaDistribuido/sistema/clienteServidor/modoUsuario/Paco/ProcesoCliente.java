@@ -46,8 +46,12 @@ public class ProcesoCliente extends Proceso{
 		Nucleo.send(105,solCliente);
                 imprimeln("Se está invocando recieve.");
 		Nucleo.receive(dameID(),respCliente);
+		if(respCliente[9]==-10)
+			imprimeln("No se encontro ninguno servidor dando ese servicio, intenta de nuevo mas tarde");
+		else {
                 String respuesta = new String(respCliente,11,respCliente[10]);
-		imprimeln("El servidor me envio un: "+respuesta);
+                imprimeln("El servidor me envio un: "+respuesta);
+		}
 	}
 
     public void mensaje(String msg, String com) {
