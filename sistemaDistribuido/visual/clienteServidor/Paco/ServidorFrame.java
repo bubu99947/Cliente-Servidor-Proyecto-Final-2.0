@@ -14,7 +14,7 @@ public class ServidorFrame extends ProcesoFrame {
     private static final long serialVersionUID = 1;
     private ProcesoServidor proc1;
     public ServidorFrame(MicroNucleoFrame frameNucleo) {
-        super(frameNucleo, "Servidor de Archivos");
+        super(frameNucleo, "Servidor de Archivos Paco");
         proc1 = new ProcesoServidor(this);
         fijarProceso(proc1);
     }
