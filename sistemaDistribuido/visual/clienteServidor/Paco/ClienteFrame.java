@@ -6,7 +6,7 @@
 
 package sistemaDistribuido.visual.clienteServidor.Paco;
 
-import sistemaDistribuido.sistema.clienteServidor.modoUsuario.Nestor.ProcesoCliente;
+import sistemaDistribuido.sistema.clienteServidor.modoUsuario.Paco.ProcesoCliente;
 import sistemaDistribuido.sistema.clienteServidor.modoMonitor.Nucleo;
 import sistemaDistribuido.visual.clienteServidor.MicroNucleoFrame;
 import sistemaDistribuido.visual.clienteServidor.ProcesoFrame;
@@ -21,14 +21,14 @@ public class ClienteFrame extends ProcesoFrame {
     private Button botonSolicitud;
     private String codop1, codop2, codop3, codop4;
     
-    private ProcesoCliente proceso;
+    private ProcesoCliente proc;
     
     public ClienteFrame(MicroNucleoFrame frameNucleo) {
-        super(frameNucleo, "Cliente de Archivos");
+        super(frameNucleo, "Cliente de Archivos Paco");
         add("South", construirPanelSolicitud());
         validate();
-        proceso = new ProcesoCliente(this,botonSolicitud);
-        fijarProceso(proceso);
+        proc = new ProcesoCliente(this);
+        fijarProceso(proc);
     
     }
 
@@ -61,11 +61,11 @@ public class ClienteFrame extends ProcesoFrame {
                 botonSolicitud.setEnabled(false);
                 com = codigosOperacion.getSelectedItem();
                 imprimeln("Solicitud a enviar: " + com);
-                if( proceso != null ){
+                if( proc != null ){
                     imprimeln("Solicitud a enviar: "+com);
                     imprimeln("Mensaje a enviar: "+campoMensaje.getText());
-                    //proceso.capturarSolicitud(com,campoMensaje.getText());
-                    Nucleo.reanudarProceso(proceso);
+                   // proceso.capturarSolicitud(com,campoMensaje.getText());
+                    Nucleo.reanudarProceso(proc);
                 }
             }
         }

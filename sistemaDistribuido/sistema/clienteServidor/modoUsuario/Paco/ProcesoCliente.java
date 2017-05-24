@@ -31,7 +31,7 @@ public class ProcesoCliente extends Proceso{
 	/**
 	 * 
 	 */
-    @Override
+   
 	public void run(){
 		imprimeln("Proceso cliente en ejecucion.");
 		imprimeln("Esperando datos para continuar.");
@@ -43,7 +43,7 @@ public class ProcesoCliente extends Proceso{
                 //Cambiar por mensaje a enviar
 		solCliente=paquete;
                 imprimeln("Se está invocando send.");
-		Nucleo.send(248,solCliente);
+		Nucleo.send(105,solCliente);
                 imprimeln("Se está invocando recieve.");
 		Nucleo.receive(dameID(),respCliente);
                 String respuesta = new String(respCliente,11,respCliente[10]);
